@@ -1,0 +1,21 @@
+@startuml
+
+"<服务>\n转账\n余额查询" as (bankService)
+
+  "<实体>\n账户" as (accountEntity)
+  "<实体>\n银行" as (bankEntity)
+
+  bankService --> accountEntity
+  bankService --> bankEntity
+
+    "<实体的唯一标识>\n账户持有人" as (accountHolderFK)
+    "<值对象>\n地址" as (addressVO)
+    "<值对象>\n账户类型" as (accountTypeVO)
+    accountEntity --> accountHolderFK
+    accountEntity --> addressVO
+    accountEntity --> accountTypeVO
+
+    "<值对象>\n银行属性" as (bankAttributeVO)
+    bankEntity --> bankAttributeVO
+
+@enduml
