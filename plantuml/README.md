@@ -1,1 +1,28 @@
-# README
+# PlantUML
+
+## 简介
+
+开源的绘图工具
+
+- 官网：<https://plantuml.com/>
+- 还有个中文官网：<https://plantuml.com/zh/>
+
+## 优势
+
+### 语法简单
+
+简单几句语法勾勒，就能渲染出图片。
+
+### 支持的软件多
+
+语雀
+
+## 如何渲染图片
+
+### 通过三方服务器代理渲染
+
+使用第三方服务器代理：http://www.plantuml.com
+
+- 源地址：https://github.com/viper140/painting/xx.md
+- 二进制地址：https://raw.githubusercontent.com/viper140/painting/xx.md
+- 代理后的地址：http://www.plantuml.com/plantuml/proxy?cache=no&src=https://raw.githubusercontent.com/viper140/painting/xx.md
