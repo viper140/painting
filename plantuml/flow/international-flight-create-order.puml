@@ -1,0 +1,32 @@
+@startuml
+
+start
+
+if (自主下单) then (yes)
+  :place order;
+  :pay;
+  :do ticketApplyConfirm task;
+   
+  if (出票申请任务执行成功) then (yes)
+  else (no) 
+    :cancel order;
+    :cancel pnr;
+    stop
+  endif
+
+else (no)
+  :build order;
+  :pay;
+
+endif
+
+:do ticketConfirm task;
+  
+if (出票任务执行成功) then (yes)
+else (no) 
+  :cancel order; 
+endif
+
+stop
+
+@enduml
