@@ -15,7 +15,7 @@ if (自主下单) then (yes)
 
 else (no)
   :build order;
-  :pay & approval & authorize;
+  :pay;
 
 endif
 
