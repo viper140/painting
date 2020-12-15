@@ -1,0 +1,40 @@
+@startuml
+
+start
+
+if (自主下单) then (yes)
+  :place order;
+else (no)
+  :build order;
+endif
+
+if (超时未支付 & gp 订单 & 后台代订) then (yes)
+
+else (no)
+  if (用户申请取消) then (yes)
+  else (no)
+    :pay;
+    floating note left: 支付后，用户不再能自主取消
+    if (审批通过 & 授权通过) then (yes)
+      :handle ticket task;
+      note left
+        * 前台客服出票取消要取消 pnr
+        * 后台客服出票取消不要取消 pnr
+        ====
+        出票相关业务这里不详细展开
+      end note
+      if (出票取消) then (yes)
+      else (no)
+        stop
+      endif
+    else (no)
+    endif
+  endif
+
+endif
+
+:cancel order (auto or handle task);
+:cancel pnr (auto or handle task);
+stop
+
+@enduml
