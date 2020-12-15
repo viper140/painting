@@ -1,0 +1,26 @@
+@startuml
+start
+
+#8EE5EE:ticket success order;
+
+repeat
+  :apply return;
+  :handle returnApplyConfirm task;
+repeat while (任务处理为退票取消) is (yes)
+
+if (任务处理为废票) then (yes)
+  :handle avoidingConfrim task;
+else (no)
+  :handle returnConfrim task;
+endif
+
+if (任务处理为退票取消、废票取消) then (yes)
+  stop
+else (no)
+  
+endif
+
+:return success!;
+
+stop
+@enduml
