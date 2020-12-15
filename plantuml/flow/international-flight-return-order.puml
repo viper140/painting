@@ -15,6 +15,7 @@ else (no)
 endif
 
 if (任务处理为退票取消、废票取消) then (yes)
+  :recover order;
   stop
 else (no)
   
