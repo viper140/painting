@@ -22,6 +22,8 @@ endif
 :handle ticketConfirm task;
   
 if (出票任务执行成功) then (yes)
+  :ticket success!;
+  stop
 else (no) 
   :cancel order; 
 endif
