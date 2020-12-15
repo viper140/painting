@@ -5,12 +5,12 @@ start
 if (自主下单) then (yes)
   :place order;
   :pay;
-  :do ticketApplyConfirm task;
+  :handle ticketApplyConfirm task;
    
   if (出票申请任务执行成功) then (yes)
   else (no) 
-    :cancel order;
-    :cancel pnr;
+    :handle cancelOrder task;
+    :handle cancelPnr task;
     stop
   endif
 
@@ -20,7 +20,7 @@ else (no)
 
 endif
 
-:do ticketConfirm task;
+:handle ticketConfirm task;
   
 if (出票任务执行成功) then (yes)
 else (no) 
