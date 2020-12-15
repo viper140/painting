@@ -1,0 +1,21 @@
+@startuml
+start
+
+#8EE5EE:ticket success order;
+
+repeat
+  :apply change;
+  :handle changeApplyConfirm task;
+repeat while (任务处理为改签取消) is (yes)
+
+:handle changeConfirm task;
+
+if (任务处理为改签退回) then (yes)
+  #HotPink:goto handle changeApplyConfirm task;
+else (no)
+endif
+
+:change success!;
+
+stop
+@enduml
