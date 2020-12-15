@@ -1,22 +1,21 @@
 @startuml
-
 start
 
 if (自主下单) then (yes)
   :place order;
-  :pay;
+  :pay & approval & authorize;
   :handle ticketApplyConfirm task;
    
   if (出票申请任务执行成功) then (yes)
   else (no) 
     :handle cancelOrder task;
-    :handle cancelPnr task;
+    :cancel pnr (auto or handle task);
     stop
   endif
 
 else (no)
   :build order;
-  :pay;
+  :pay & approval & authorize;
 
 endif
 
@@ -28,5 +27,4 @@ else (no)
 endif
 
 stop
-
 @enduml
