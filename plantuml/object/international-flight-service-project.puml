@@ -1,0 +1,9 @@
+@startuml
+object root
+object dto
+object api
+
+dto <|-- root: 依赖
+api <|-- root: 依赖
+dto <|-- api: 依赖
+@enduml
